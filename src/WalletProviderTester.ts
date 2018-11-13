@@ -45,6 +45,17 @@ class WalletProviderTester {
     //
     // sign
     //
+    public async testSign(): Promise<boolean> {
+        const address = await this.walletProvider.getAddresses(0, 1)[0]
+        const result = await this.walletProvider.sign(
+            address,
+            "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d" // second argument is SHA1("hello")
+        )
+        if (typeof result === "string") {
+            throw new Error("The return value is invalid.")
+          }
+        return true
+    }
 
     //
     // createSignedTx
