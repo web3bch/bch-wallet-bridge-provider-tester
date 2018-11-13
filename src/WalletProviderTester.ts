@@ -53,6 +53,13 @@ class WalletProviderTester {
     //
     // getProtocolVersion
     //
+    public async testGetProtocolVersion(): Promise<boolean> {
+        const version = await this.walletProvider.getProtocolVersion()
+        if (!(Number.isInteger(version) && version > 0)) {
+            throw new Error("The return value is invalid.")
+          }
+        return true
+    }
 
     //
     // getNetworkMagic
