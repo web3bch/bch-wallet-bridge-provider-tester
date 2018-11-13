@@ -49,6 +49,18 @@ class WalletProviderTester {
     //
     // createSignedTx
     //
+    public async testCreateSignedTx(): Promise<boolean> {
+        const txid = await this.walletProvider.createSignedTx([
+            {
+                lockScript: "76a91467b2e55ada06c869547e93288a4cf7377211f1f088ac",
+                amount: 10000
+            }
+        ])
+        if (typeof txid === "string") {
+            throw new Error("The return value is invalid.")
+          }
+        return true
+    }
 
     //
     // getProtocolVersion
