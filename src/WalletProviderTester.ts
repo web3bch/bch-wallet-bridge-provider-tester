@@ -6,6 +6,16 @@ class WalletProviderTester {
     //
     // getVersion
     //
+    public testGetVersion(): Promise<boolean> {
+        return this.walletProvider
+        .getVersion()
+        .then((version) => {
+            if (typeof version !== "string") {
+              throw new Error("The return value is invalid.")
+            }
+            return true
+          })
+    }
 
     //
     // getAddresses
