@@ -32,7 +32,7 @@ class WalletProviderTester {
     //
     public async testGetAddressIndex(): Promise<boolean> {
         const idx = await this.walletProvider.getAddressIndex(0, undefined)
-        if (!Number.isInteger(idx) || idx >= 0 || idx > Math.pow( 2, 32 ) - 1) {
+        if (!Number.isInteger(idx) || idx < 0 || idx > Math.pow( 2, 32 ) - 1) {
             throw new Error("The return value is invalid.")
         }
         return true
