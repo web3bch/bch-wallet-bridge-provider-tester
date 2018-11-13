@@ -22,9 +22,13 @@ class WalletProviderTester {
         const addresses = await this.walletProvider.getAddresses(0, 10, 0, undefined)
         const address = addresses[0]
         if (typeof address !== "string") {
-          throw new Error("The return value is invalid.")
+            throw new Error("The return value is invalid.")
         }
-        return addresses.length === 10
+
+        if (addresses.length !== 10) {
+            throw new Error("The number of addresses returned is not expected value.")
+        }
+        return true
     }
 
     //
