@@ -1,4 +1,5 @@
 import IWalletProvider from "bch-wallet-bridge-provider-interface/lib/IWalletProvider"
+import Utxo from 'bch-wallet-bridge-provider-interface/lib/entities/Utxo';
 
 class WalletProviderTester {
     constructor(public walletProvider: IWalletProvider) {}
@@ -14,7 +15,7 @@ class WalletProviderTester {
               throw new Error("The return value is invalid.")
             }
             return true
-          })
+        })
     }
 
     //
@@ -29,7 +30,7 @@ class WalletProviderTester {
               throw new Error("The return value is invalid.")
             }
             return addresses.length === 10
-          })
+        })
     }
 
     //
@@ -43,7 +44,7 @@ class WalletProviderTester {
               throw new Error("The return value is invalid.")
             }
             return true
-          })
+        })
     }
 
     //
@@ -57,16 +58,33 @@ class WalletProviderTester {
               throw new Error("The return value is invalid.")
             }
             return true
-          })
+        })
     }
 
     //
     // addRedeemScript
     //
+    public testAddRedeemScripts(): Promise<boolean> {
+        return this.walletProvider
+        .addRedeemScript("76a914925d4028880bd0c9d68fbc7fc7dfee976698629c88ac", undefined)
+        .then((result) => {
+            return true
+        })
+    }
 
     //
     // getSpendableUtxos
     //
+    public testGetSpendableUtxos(): Promise<boolean> {
+        return this.walletProvider
+        .getSpendableUtxos(undefined)
+        .then((utxos) => {
+            if (utxos.length > 0 && utxos[0] instanceof Utxo) {
+                throw new Error("The return value is invalid.")
+            }
+            return true
+        })
+    }
 
     //
     // getUnspendableUtxos
