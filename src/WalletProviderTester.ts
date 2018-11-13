@@ -68,4 +68,11 @@ class WalletProviderTester {
     //
     // getFeePerByte
     //
+    public async testGetFeePerByte(): Promise<boolean> {
+        const feePerByte = await this.walletProvider.getFeePerByte()
+        if (!Number.isInteger(feePerByte) || feePerByte <= 0) {
+            throw new Error("The return value is invalid.")
+          }
+        return true
+    }
 }
