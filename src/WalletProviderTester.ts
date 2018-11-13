@@ -46,10 +46,10 @@ class WalletProviderTester {
             await this.walletProvider.getUnspendableUtxos(
                 "53212266f7994100e442f6dff10fbdb50a93121d25c196ce0597517d35d42e68" // This DAppId does not exist
             )
+            throw new Error("Should throw an error when the DAppsId does not exist")
         } catch {
             return true
         }
-        throw new Error("Should throw an error when the DAppsId does not exist")
     }
 
     //
