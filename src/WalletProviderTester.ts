@@ -1,7 +1,7 @@
 import IWalletProvider from "bch-wallet-bridge-provider-interface/lib/IWalletProvider"
 import Utxo from "bch-wallet-bridge-provider-interface/lib/entities/Utxo"
 
-class WalletProviderTester {
+export default class WalletProviderTester {
     constructor(public walletProvider: IWalletProvider) {}
 
     //

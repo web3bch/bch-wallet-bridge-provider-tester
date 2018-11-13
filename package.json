@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bch-wallet-bridge-provider-interface": "^0.1.1",
+    "immutability-helper": "^2.8.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-scripts-ts": "3.1.0",
-    "bch-wallet-bridge-provider-interface": "^0.1.1"
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.83.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
