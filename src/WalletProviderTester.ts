@@ -64,6 +64,13 @@ class WalletProviderTester {
     //
     // getNetworkMagic
     //
+    public async testGetNetworkMagic(): Promise<boolean> {
+        const networkMagic = await this.walletProvider.getNetworkMagic()
+        if (!Number.isInteger(networkMagic) || networkMagic <= 0) {
+            throw new Error("The return value is invalid.")
+          }
+        return true
+    }
 
     //
     // getFeePerByte
