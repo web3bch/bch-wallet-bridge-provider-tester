@@ -35,6 +35,16 @@ class WalletProviderTester {
     //
     // getAddressIndex
     //
+    public testGetAddressIndex(): Promise<boolean> {
+        return this.walletProvider
+        .getAddressIndex(0, undefined)
+        .then((idx) => {
+            if (!Number.isInteger(idx) || idx >= 0 || idx > Math.pow( 2, 32 ) - 1) {
+              throw new Error("The return value is invalid.")
+            }
+            return true
+          })
+    }
 
     //
     // getRedeemScripts
