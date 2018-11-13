@@ -79,7 +79,7 @@ class WalletProviderTester {
         return this.walletProvider
         .getSpendableUtxos(undefined)
         .then((utxos) => {
-            if (utxos.length > 0 && utxos[0] instanceof Utxo) {
+            if (utxos.length > 0 && !(utxos[0] instanceof Utxo)) {
                 throw new Error("The return value is invalid.")
             }
             return true
