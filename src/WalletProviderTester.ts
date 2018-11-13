@@ -49,6 +49,16 @@ class WalletProviderTester {
     //
     // getRedeemScripts
     //
+    public testGetRedeemScripts(): Promise<boolean> {
+        return this.walletProvider
+        .getRedeemScripts(undefined)
+        .then((redeemScripts) => {
+            if (redeemScripts.length > 0 && typeof redeemScripts[0] !== "string") {
+              throw new Error("The return value is invalid.")
+            }
+            return true
+          })
+    }
 
     //
     // addRedeemScript
