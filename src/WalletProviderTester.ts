@@ -3,6 +3,13 @@ import IWalletProvider from "bch-wallet-bridge-provider-interface/lib/IWalletPro
 class WalletProviderTester {
     constructor(public walletProvider: IWalletProvider) {}
 
+    //
+    // getVersion
+    //
+
+    //
+    // getAddresses
+    //
     public testGetAddresses(): Promise<boolean> {
         return this.walletProvider
         .getAddresses(0, 10, 0, undefined)
@@ -14,4 +21,44 @@ class WalletProviderTester {
             return addresses.length === 10
           })
     }
+
+    //
+    // getAddressIndex
+    //
+
+    //
+    // getRedeemScripts
+    //
+
+    //
+    // addRedeemScript
+    //
+
+    //
+    // getSpendableUtxos
+    //
+
+    //
+    // getUnspendableUtxos
+    //
+
+    //
+    // sign
+    //
+
+    //
+    // createSignedTx
+    //
+
+    //
+    // getProtocolVersion
+    //
+
+    //
+    // getNetworkMagic
+    //
+
+    //
+    // getFeePerByte
+    //
 }
