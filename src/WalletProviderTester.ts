@@ -56,7 +56,7 @@ class WalletProviderTester {
                 amount: 10000
             }
         ])
-        if (typeof txid === "string") {
+        if (typeof txid !== "string") {
             throw new Error("The return value is invalid.")
           }
         return true
