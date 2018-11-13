@@ -51,7 +51,7 @@ class WalletProviderTester {
             address,
             "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d" // second argument is SHA1("hello")
         )
-        if (typeof result === "string") {
+        if (typeof result !== "string") {
             throw new Error("The return value is invalid.")
           }
         return true
